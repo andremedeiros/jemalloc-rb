@@ -12,18 +12,22 @@ def sys(cmd)
   ret
 end
 
+# grab config options
+config_options = []
+config_options << '--disable-valgrind' if (with_config('valgrind') == false)
+
 # monfigure and copy sources to cur_dir
 src_dir = File.expand_path(File.dirname(__FILE__))
 cur_dir = Dir.pwd
 Dir.chdir File.dirname(__FILE__) do
   # cleanup
-  FileUtils.remove_dir(pkg, force = true)
+  FileUtils.remove_dir(pkg, true)
 
   # decompress and copy source files
   sys "tar vjxf #{pkg}.tar.bz2"
   Dir.chdir(pkg) do
     # configure
-    sys "./configure"
+    sys "./configure #{ config_options.join(' ') }"
     # zone.c is only for Mac OS X
     if RbConfig::CONFIG['target_vendor'] != "apple"
       sys "rm -fR src/zone.c"
