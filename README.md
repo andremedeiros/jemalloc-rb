@@ -4,9 +4,9 @@ Instant [jemalloc](http://www.canonware.com/jemalloc/) injection into Ruby apps,
 
 # Why jemalloc?
 
-Ruby relies on malloc(3) for its internal memory allocation. Using better malloc() implementation will boost your application performance, and supress the memory usage.
+Ruby relies on malloc(3) for its internal memory allocation. Using better a malloc() implementation will boost your application's performance, and supress the memory usage.
 
-jemalloc is a malloc(3) implementation, originally developed by Jason Evans. jemalloc handles small object better than other allocators so usually gives better performance and memory usage to Ruby programs.
+jemalloc is a malloc(3) implementation, originally developed by Jason Evans. jemalloc handles small objects better than other allocators, so it usually gives better performance and memory usage to Ruby programs.
 
 # Why jemalloc?
 
@@ -14,7 +14,7 @@ Installing jemalloc separately from Ruby is pain in some cases (e.g. Heroku, Eng
 
 # Install
 
-Install `jemalloc` gem in your application. For [bundler](http://gembundler.com/) based application, please add the following line into your Gemfile, and and install `jemalloc` by `bundle install`.
+Install `jemalloc` gem in your application. For [bundler](http://gembundler.com/) based applications, please add the following line into your Gemfile, and and install `jemalloc` by `bundle install`.
 
     gem 'jemalloc'
 
